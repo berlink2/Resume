@@ -95,6 +95,18 @@ p.lead {
   outline-color: #d48a6e;
 }
 
+/* #sideNav .navbar-nav .nav-item .nav-link:hover {
+  color:  rgb(209, 10, 10);
+}
+
+#sideNav .navbar-nav .nav-item .nav-link:focus {
+  color:  rgb(209, 10, 10);
+} */
+
+/* section h2 {
+  color: rgb(209, 10, 10);
+} */
+
 @media (min-width: 992px) {
   #sideNav {
     text-align: center;
