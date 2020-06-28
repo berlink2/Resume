@@ -27,7 +27,7 @@
     <link rel="shortcut icon" type="image/png" href="img/bklogo.png" />
 
     <!-- css -->
-    <link href="css/resume.min.css" rel="stylesheet" />
+    <!-- <link href="css/resume.min.css" rel="stylesheet" /> -->
     <link href="css/resume.css" rel="stylesheet" />
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
   </head>
@@ -96,17 +96,33 @@
         <div class="w-100">
           <h1 class="mb-0">
             Berlian
-            <span class="text-danger">Khatulistiwa</span>
+            <span class="text-danger">
+              Khatulistiwa
+            </span>
           </h1>
+
           <div class="text-black subheading mb-5">
             Jakarta, Indonesia ·
             <a class="text-black" href="mailto:name@email.com"
               >berlink.k2@gmail.com</a
             >
           </div>
-          <p class="lead mb-5">
-            Software Developer | Photographer
-          </p>
+
+          <div class="wrapper">
+            <div data-text></div>
+
+            <span class="item text-black">Software Developer</span>
+            <span class="item text-black">Photographer</span>
+            <span class="item text-black">Traveller</span>
+            <span class="item text-black">Multilingual & Multicultural</span>
+            <span class="item text-black">Film Enthusiast</span>
+
+            <span class="item text-black">Ice Cream Obsessive</span>
+          </div>
+
+          <br />
+          <br />
+
           <div class="social-icons">
             <a href="https://github.com/berlink2/">
               <i class="fab fa-github"></i>
@@ -125,6 +141,51 @@
           </div>
         </div>
       </section>
+
+      <script>
+        let wrapper;
+        const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+        async function writingAll(stringTarget, container) {
+          wrapper = document.querySelector("[" + container + "]");
+          const stringsContainer = document.getElementsByClassName(
+            stringTarget
+          );
+
+          while (wrapper) {
+            for (i = 0; i < stringsContainer.length; i++) {
+              const string = stringsContainer[i].textContent;
+              await write(string);
+              await sleep(1000);
+              await erase();
+              await sleep(1000);
+            }
+          }
+        }
+
+        async function write(text) {
+          let index = 0;
+          while (index < text.length) {
+            const timeout = 100;
+            await sleep(timeout);
+            index++;
+            wrapper.innerHTML = text.substring(0, index);
+          }
+        }
+
+        async function erase() {
+          while (wrapper.textContent.length) {
+            const timeout = 100;
+            await sleep(timeout);
+            wrapper.textContent = wrapper.textContent.substring(
+              0,
+              wrapper.textContent.length - 2
+            );
+          }
+        }
+
+        writingAll("item", "data-text");
+      </script>
 
       <hr class="m-0" />
 
@@ -189,7 +250,7 @@
             </li>
             <li>
               <i class="fa-li fa fa-check"></i>
-              Other Software Tools: GraphQL
+              Other Software Tools: GraphQL, PostgreSQL, MySQL, MongoDB, Redis
             </li>
             <li>
               <i class="fa-li fa fa-check"></i>
@@ -198,7 +259,7 @@
             <li>
               <i class="fa-li fa fa-check"></i>
               <a href="https://www.instagram.com/basicallybearlion/"
-                >Professional Photography</a
+                >Photography</a
               >
             </li>
             <li>
